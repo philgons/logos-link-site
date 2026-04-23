@@ -1,0 +1,1579 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Logos Link — Internal Vision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue: #1e6afe;
+        --blue-hover: #1558d9;
+        --blue-light: #e9f5ff;
+        --deep: #030b60;
+        --deep-2: #0a1470;
+        --white: #ffffff;
+        --ink: #111827;
+        --ink-2: #1f2937;
+        --muted: #4b5563;
+        --soft: #f7f9fc;
+        --line: #e5e7eb;
+        --accent: #ffd166;
+
+        --font-heading: "Lexend", "Inter", system-ui, sans-serif;
+        --font-body: "Source Sans 3", "Source Sans Pro", "Inter", system-ui,
+          sans-serif;
+
+        --radius: 14px;
+        --radius-sm: 8px;
+        --shadow: 0 10px 40px rgba(3, 11, 96, 0.08);
+        --shadow-lg: 0 24px 60px rgba(3, 11, 96, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--ink);
+        background: var(--white);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .deck {
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+      }
+
+      .slide {
+        height: 100vh;
+        width: 100%;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 64px 8vw;
+        overflow: hidden;
+      }
+
+      .slide-inner {
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      /* Themes */
+      .theme-deep {
+        background: linear-gradient(135deg, var(--deep) 0%, var(--deep-2) 60%, #1a2a9c 100%);
+        color: var(--white);
+      }
+      .theme-deep h1,
+      .theme-deep h2,
+      .theme-deep h3,
+      .theme-deep p {
+        color: var(--white);
+      }
+      .theme-light {
+        background: var(--white);
+      }
+      .theme-soft {
+        background: var(--soft);
+      }
+      .theme-accent {
+        background: linear-gradient(135deg, var(--blue-light) 0%, #f3f8ff 100%);
+      }
+
+      /* Typography */
+      h1 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: clamp(44px, 6vw, 84px);
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px;
+        color: var(--deep);
+      }
+      h2 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: clamp(32px, 4vw, 56px);
+        line-height: 1.05;
+        letter-spacing: -0.015em;
+        margin: 0 0 32px;
+        color: var(--deep);
+      }
+      h3 {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: clamp(18px, 1.5vw, 22px);
+        line-height: 1.2;
+        margin: 0 0 8px;
+        color: var(--deep);
+      }
+      p {
+        font-family: var(--font-body);
+        font-size: clamp(17px, 1.35vw, 21px);
+        line-height: 1.55;
+        color: var(--ink-2);
+        margin: 0 0 16px;
+      }
+      p.lede {
+        font-size: clamp(20px, 1.7vw, 26px);
+        color: var(--muted);
+        font-weight: 400;
+        line-height: 1.45;
+        max-width: 900px;
+      }
+
+      .eyebrow {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--blue);
+        margin: 0 0 24px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .theme-deep .eyebrow {
+        color: #8db5ff;
+      }
+      .eyebrow::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 2px;
+      }
+
+      /* Cover */
+      .cover {
+        text-align: left;
+      }
+      .cover .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 60px;
+      }
+      .cover .brand-name {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+      }
+      .cover h1 {
+        color: var(--white);
+        font-size: clamp(44px, 6.2vw, 96px);
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        margin-bottom: 24px;
+        font-weight: 700;
+        text-wrap: balance;
+      }
+      .cover h1 .line {
+        display: block;
+      }
+      .cover h1 .line-nowrap {
+        white-space: nowrap;
+      }
+      .cover h1 .accent {
+        background: linear-gradient(90deg, #8db5ff, #ffd166);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .cover .tagline {
+        font-family: var(--font-heading);
+        font-weight: 400;
+        font-size: clamp(22px, 2.2vw, 34px);
+        color: #cfdcff;
+        margin-bottom: 96px;
+        max-width: 900px;
+      }
+      .cover .meta {
+        display: flex;
+        gap: 40px;
+        font-size: 15px;
+        color: #9eb3e5;
+      }
+      .cover .meta span strong {
+        color: var(--white);
+        font-weight: 600;
+        margin-right: 6px;
+      }
+
+      /* Two-column layouts */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      /* Cards */
+      .card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+      .card .num {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 44px;
+        color: var(--blue);
+        line-height: 1;
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+      }
+      .card h3 {
+        margin-bottom: 6px;
+      }
+      .card p {
+        font-size: 15px;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .theme-deep .card {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+      }
+      .theme-deep .card h3,
+      .theme-deep .card .num {
+        color: var(--white);
+      }
+      .theme-deep .card p {
+        color: #cfdcff;
+      }
+
+      /* Feature rows */
+      .feature-list {
+        display: grid;
+        gap: 14px;
+      }
+      .feature {
+        display: grid;
+        grid-template-columns: 44px 1fr auto;
+        gap: 18px;
+        align-items: center;
+        padding: 18px 22px;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .feature:hover {
+        border-color: var(--blue);
+        box-shadow: var(--shadow);
+      }
+      .feature .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: var(--blue-light);
+        color: var(--blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .feature .body h3 {
+        margin: 0 0 2px;
+        font-size: 17px;
+      }
+      .feature .body p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .feature .badge {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+      .badge.live {
+        background: #dcfce7;
+        color: #166534;
+      }
+      .badge.soon {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .badge.blocked {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      /* Stats row */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 28px 0;
+        margin: 40px 0;
+      }
+      .stat {
+        text-align: center;
+        border-right: 1px solid var(--line);
+        padding: 0 16px;
+      }
+      .stat:last-child {
+        border-right: none;
+      }
+      .stat .num {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: clamp(40px, 4vw, 64px);
+        line-height: 1;
+        color: var(--blue);
+        letter-spacing: -0.02em;
+      }
+      .stat .label {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-top: 10px;
+        font-family: var(--font-heading);
+        font-weight: 500;
+      }
+      .theme-deep .stats {
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+      .theme-deep .stat {
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+      .theme-deep .stat .num {
+        color: var(--white);
+      }
+      .theme-deep .stat .label {
+        color: #9eb3e5;
+      }
+
+      /* Timeline */
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        position: relative;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 22px;
+        left: 6%;
+        right: 6%;
+        height: 2px;
+        background: var(--line);
+      }
+      .tl-phase {
+        position: relative;
+        padding: 0 16px;
+        text-align: center;
+      }
+      .tl-phase .dot {
+        width: 44px;
+        height: 44px;
+        margin: 0 auto 16px;
+        background: var(--white);
+        border: 2px solid var(--blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        color: var(--blue);
+        position: relative;
+        z-index: 1;
+      }
+      .tl-phase.current .dot {
+        background: var(--blue);
+        color: var(--white);
+      }
+      .tl-phase .when {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      .tl-phase h3 {
+        font-size: 19px;
+        margin-bottom: 8px;
+      }
+      .tl-phase p {
+        font-size: 14px;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      /* Asks list */
+      .asks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .ask {
+        background: var(--white);
+        color: var(--ink);
+        border-left: 4px solid var(--blue);
+        padding: 22px 26px;
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        box-shadow: var(--shadow);
+      }
+      .ask h3 {
+        font-size: 17px;
+        margin-bottom: 6px;
+        color: var(--deep);
+      }
+      .ask p {
+        font-size: 15px;
+        color: var(--muted);
+        margin: 0;
+      }
+      .ask .from {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--blue);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      /* Close slide */
+      .close-cta {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: clamp(36px, 4.5vw, 60px);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        max-width: 1000px;
+      }
+      .close-sub {
+        font-size: clamp(18px, 1.5vw, 22px);
+        color: #cfdcff;
+        margin-top: 32px;
+        max-width: 780px;
+      }
+      .close-sig {
+        margin-top: 80px;
+        font-size: 14px;
+        color: #9eb3e5;
+      }
+      .close-sig strong {
+        color: var(--white);
+        font-weight: 600;
+      }
+
+      /* Nav indicator */
+      .nav-dots {
+        position: fixed;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 100;
+      }
+      .nav-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(3, 11, 96, 0.18);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .nav-dot:hover {
+        background: rgba(3, 11, 96, 0.4);
+      }
+      .nav-dot.active {
+        background: var(--blue);
+        transform: scale(1.4);
+      }
+      .nav-dots.on-deep .nav-dot {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .nav-dots.on-deep .nav-dot.active {
+        background: var(--white);
+      }
+
+      /* Slide number */
+      .slide-num {
+        position: absolute;
+        bottom: 24px;
+        left: 24px;
+        font-family: var(--font-heading);
+        font-weight: 500;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        opacity: 0.6;
+      }
+      .theme-deep .slide-num {
+        color: #9eb3e5;
+      }
+
+      /* Brand mark in slides */
+      .mark-bg {
+        position: absolute;
+        right: -80px;
+        bottom: -80px;
+        width: 420px;
+        height: 420px;
+        opacity: 0.04;
+        pointer-events: none;
+      }
+      .theme-deep .mark-bg {
+        opacity: 0.08;
+      }
+
+      /* Demo frame */
+      .demo-frame {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        aspect-ratio: 16 / 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-family: var(--font-heading);
+        font-weight: 500;
+        position: relative;
+      }
+      .demo-frame .label {
+        background: var(--blue-light);
+        color: var(--blue);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+      }
+
+      /* Tooltip example */
+      .demo-tooltip {
+        position: relative;
+        background: linear-gradient(180deg, #fcfcfd 0%, #f3f5f9 100%);
+        padding: 60px 50px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        font-family: Georgia, "Iowan Old Style", serif;
+        font-size: 22px;
+        line-height: 1.7;
+        color: #2a2a2a;
+      }
+      .demo-tooltip .ref {
+        background: rgba(30, 106, 254, 0.18);
+        padding: 2px 6px;
+        border-radius: 3px;
+        color: var(--deep);
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+      }
+      .demo-tooltip .pop {
+        position: absolute;
+        left: 100px;
+        top: 18px;
+        width: 320px;
+        background: var(--white);
+        border-radius: 12px;
+        box-shadow: 0 12px 40px rgba(3, 11, 96, 0.2);
+        border: 1px solid var(--line);
+        padding: 18px 20px;
+        font-family: var(--font-body);
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--ink);
+      }
+      .demo-tooltip .pop .head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--blue);
+      }
+      .demo-tooltip .pop .verse {
+        color: var(--ink-2);
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+      .demo-tooltip .pop .cta {
+        display: inline-block;
+        background: var(--blue);
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 13px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        text-decoration: none;
+      }
+
+      /* Utility */
+      .muted {
+        color: var(--muted);
+      }
+      ul.plain {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 12px;
+      }
+      ul.plain li {
+        padding-left: 28px;
+        position: relative;
+        font-size: 17px;
+        color: var(--ink-2);
+        line-height: 1.5;
+      }
+      ul.plain li::before {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        background: var(--blue);
+        border-radius: 50%;
+      }
+      .theme-deep ul.plain li {
+        color: #dbe4ff;
+      }
+
+      .callout {
+        background: linear-gradient(135deg, var(--blue-light) 0%, #f3f8ff 100%);
+        border-left: 4px solid var(--blue);
+        padding: 22px 28px;
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        margin-top: 32px;
+      }
+      .callout p {
+        margin: 0;
+        font-size: 18px;
+        color: var(--deep);
+      }
+
+      .kbd-hint {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        font-size: 11px;
+        font-family: var(--font-heading);
+        color: var(--muted);
+        opacity: 0.6;
+        letter-spacing: 0.06em;
+        transition: color 0.2s;
+      }
+      .kbd-hint.on-deep {
+        color: #cfdcff;
+      }
+
+      kbd {
+        background: rgba(0, 0, 0, 0.06);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 1px 6px;
+        font-family: var(--font-heading);
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--muted);
+        transition: background 0.2s, border-color 0.2s, color 0.2s;
+      }
+      .kbd-hint.on-deep kbd {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.25);
+        color: #e4ecff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-dots" id="navDots"></div>
+
+    <main class="deck" id="deck">
+      <!-- 1. Cover -->
+      <section class="slide theme-deep cover" data-title="Cover">
+        <div class="slide-inner">
+          <div class="brand">
+            <svg width="36" height="36" viewBox="0 0 58 58" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.018 0H49.982C54.41 0 58 3.59 58 8.018V49.982C58 54.41 54.41 58 49.982 58H8.018c-1.143 0-2.23-.24-3.213-.672-.255-.112-.305-.443-.109-.639L17.504 43.865a.547.547 0 0 1 .444-.107c3.095 2.336 6.946 3.721 11.122 3.721 10.207 0 18.481-8.274 18.481-18.481S39.278 10.517 29.07 10.517 10.59 18.79 10.59 28.998c0 3.978 1.257 7.662 3.396 10.678.093.176.073.397-.061.554L1.167 52.955a.343.343 0 0 1-.645-.126A8.08 8.08 0 0 1 0 49.981V8.018C0 3.59 3.59 0 8.018 0Zm34.833 28.967c0 7.743-6.172 14.02-13.786 14.02s-13.786-6.277-13.786-14.02 6.172-14.02 13.786-14.02 13.786 6.277 13.786 14.02ZM22.785 24.835a.413.413 0 0 0-.412.413v3.474c0 .228.184.412.412.412h4.13v8.093c0 .228.185.412.413.412h3.474a.413.413 0 0 0 .412-.412v-8.093h4.14a.413.413 0 0 0 .413-.412v-3.474a.413.413 0 0 0-.413-.413h-4.14v-4.14a.413.413 0 0 0-.412-.412h-3.474a.413.413 0 0 0-.413.413v4.14h-4.13Z"
+                fill="#ffffff"
+              />
+            </svg>
+            <span class="brand-name">Logos Link</span>
+          </div>
+          <h1>
+            <span class="line line-nowrap">Take Logos with you</span>
+            <span class="line"
+              >across <span class="accent">the entire web</span>.</span
+            >
+          </h1>
+          <div class="tagline">
+            A lightweight browser extension that turns Bible references,
+            theology terms, and biblical entities on the open web into
+            one-click doors into Logos.
+          </div>
+          <div class="meta">
+            <span><strong>For</strong> Logos / Faithlife internal team</span>
+            <span><strong>From</strong> Phil Gons, CPO</span>
+            <span><strong>April 2026</strong></span>
+          </div>
+        </div>
+        <div class="slide-num">01</div>
+      </section>
+
+      <!-- 2. The gap -->
+      <section class="slide theme-light" data-title="The gap">
+        <div class="slide-inner">
+          <p class="eyebrow">The gap</p>
+          <h1>Our users also spend time reading outside Logos.</h1>
+          <p class="lede">
+            Bible references, theology terms, and book mentions they
+            encounter on DesiringGod, The Gospel Coalition, a seminary PDF, or a
+            Substack newsletter are moments Logos could be present — and isn’t.
+          </p>
+          <div class="callout">
+            <p>
+              <strong>The handoff is broken.</strong> Readers either retype a
+              reference into Logos, use Google, or just keep reading — and the
+              opportunity to go deeper is lost.
+            </p>
+          </div>
+        </div>
+        <div class="slide-num">02</div>
+      </section>
+
+      <!-- 3. The vision -->
+      <section class="slide theme-deep" data-title="The vision">
+        <div class="slide-inner">
+          <p class="eyebrow">The vision</p>
+          <h1>
+            Make the open web<br />
+            Logos-aware.
+          </h1>
+          <p class="lede" style="color: #cfdcff; max-width: 960px">
+            A quiet, intelligent layer that detects biblical content anywhere a
+            Logos user reads — then offers the shortest possible path back into
+            Logos: a verse preview, a deep-link, a Factbook entry, a store
+            search, a passage list.
+          </p>
+          <div class="grid-3" style="margin-top: 56px">
+            <div class="card">
+              <h3>Ambient presence</h3>
+              <p>
+                Logos becomes visible everywhere our users already read. No
+                workflow change.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Zero-friction handoff</h3>
+              <p>
+                Hover to preview. Click to open in Logos. That’s the whole
+                interaction model.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Complementary, not competing</h3>
+              <p>
+                A companion to the flagship app — it makes Logos more valuable,
+                doesn’t replace it.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-num">03</div>
+      </section>
+
+      <!-- 4. What it is -->
+      <section class="slide theme-light" data-title="What it is">
+        <div class="slide-inner">
+          <p class="eyebrow">What it is</p>
+          <div class="grid-2" style="gap: 72px; align-items: center">
+            <div>
+              <h1>A Chrome extension.<br />That’s it.</h1>
+              <p class="lede">
+                Manifest V3. Zero servers of our own. The entire product lives
+                inside the browser the user already has open.
+              </p>
+              <ul class="plain" style="margin-top: 32px">
+                <li>Hover tooltips on biblical content</li>
+                <li>Side panel browsing of everything detected on a page</li>
+                <li>Built-in PDF viewer with the same detection</li>
+                <li>Deep-links to Logos desktop, Logos Web, and Factbook</li>
+                <li>ESV, LEB, KJV verse previews via Crossway + Biblia APIs</li>
+              </ul>
+            </div>
+            <div class="demo-tooltip">
+              In the beginning was the Word, as
+              <span class="ref"
+                >John 1:1<span class="pop">
+                  <span class="head">John 1:1 · ESV</span>
+                  <span class="verse">
+                    “In the beginning was the Word, and the Word was with God,
+                    and the Word was God.”
+                  </span>
+                  <a class="cta" href="#">Open in Logos →</a>
+                </span></span
+              >
+              reminds us, at the very center of creation.
+            </div>
+          </div>
+        </div>
+        <div class="slide-num">04</div>
+      </section>
+
+      <!-- 5. By the numbers -->
+      <section class="slide theme-accent" data-title="By the numbers">
+        <div class="slide-inner">
+          <p class="eyebrow">Where we are today</p>
+          <h1>Quiet progress, real surface area.</h1>
+          <p class="lede">
+            Four of five planned phases are substantially shipped. 430 tests
+            passing, clean build, ready to put in colleagues' hands.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <div class="num">5</div>
+              <div class="label">Detection types</div>
+            </div>
+            <div class="stat">
+              <div class="num">300</div>
+              <div class="label">Theology terms</div>
+            </div>
+            <div class="stat">
+              <div class="num">200</div>
+              <div class="label">Biblical entities</div>
+            </div>
+            <div class="stat">
+              <div class="num">430</div>
+              <div class="label">Passing tests</div>
+            </div>
+          </div>
+          <div class="grid-4">
+            <div class="card">
+              <div class="num">4/5</div>
+              <h3>Phases shipped</h3>
+              <p>Scripture Sense, Library Bridge, Study Companion, Research Hub.</p>
+            </div>
+            <div class="card">
+              <div class="num">PDF</div>
+              <h3>Full viewer</h3>
+              <p>Lazy-rendered, all 5 detectors, sidebar-integrated.</p>
+            </div>
+            <div class="card">
+              <div class="num">23</div>
+              <h3>Translations</h3>
+              <p>ESV, LEB, KJV, NIV, NASB95, NLT, NET, CSB, MSG, and 14 more.</p>
+            </div>
+            <div class="card">
+              <div class="num">78kb</div>
+              <h3>Content script</h3>
+              <p>Gzipped. Light footprint on every page.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-num">05</div>
+      </section>
+
+      <!-- 6. What it detects (existing features) -->
+      <section class="slide theme-light" data-title="What it detects">
+        <div class="slide-inner">
+          <p class="eyebrow">Existing features · five detectors</p>
+          <h2>Five ways it sees biblical content on the page.</h2>
+          <div class="feature-list">
+            <div class="feature">
+              <div class="icon">📖</div>
+              <div class="body">
+                <h3>Bible references</h3>
+                <p>
+                  John 3:16, Rom 8:28–30, Ps 23. Verse previews across 23 translations
+                  (ESV, LEB, KJV, NIV, NASB95, NLT, NET, CSB, …). Deep-links to
+                  Logos desktop, Logos Web, and Biblia.
+                </p>
+              </div>
+              <div class="badge live">Live</div>
+            </div>
+            <div class="feature">
+              <div class="icon">👤</div>
+              <div class="body">
+                <h3>Biblical entities → Factbook</h3>
+                <p>
+                  ~200 curated entries with BK-verified DTRs. Apostles, prophets,
+                  places, events. Right prefix, right slug, no 404s.
+                </p>
+              </div>
+              <div class="badge live">Live</div>
+            </div>
+            <div class="feature">
+              <div class="icon">✨</div>
+              <div class="body">
+                <h3>Theology terms → Factbook</h3>
+                <p>
+                  ~300 entries across attributes of God, soteriology, covenants,
+                  canon, creeds, Christological controversies.
+                </p>
+              </div>
+              <div class="badge live">Live</div>
+            </div>
+            <div class="feature">
+              <div class="icon">α</div>
+              <div class="body">
+                <h3>Greek &amp; Hebrew words</h3>
+                <p>
+                  Transliterated and native-script lemmas (agape, hesed, logos,
+                  πίστις) link to lemma lookup.
+                </p>
+              </div>
+              <div class="badge live">Live</div>
+            </div>
+            <div class="feature">
+              <div class="icon">📚</div>
+              <div class="body">
+                <h3>Books → Logos Store</h3>
+                <p>
+                  ~400 curated titles with title+author gating. ISBN, citations,
+                  Amazon pages. “Available in Logos” banner.
+                </p>
+              </div>
+              <div class="badge live">Live</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-num">06</div>
+      </section>
+
+      <!-- 7. Surface area -->
+      <section class="slide theme-soft" data-title="Surface area">
+        <div class="slide-inner">
+          <p class="eyebrow">Surface area</p>
+          <h2>Detection shows up everywhere readers are.</h2>
+          <div class="grid-3">
+            <div class="card">
+              <h3>Any web page</h3>
+              <p>
+                Content script injects detection + tooltips into every
+                user-allowed site. Reftagger and ESV CrossRef compatibility: we
+                replace third-party markup with ours so tooltips don’t collide.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Built-in PDF viewer</h3>
+              <p>
+                Right-click any PDF link → open in our viewer. Lazy-rendered,
+                ligature-normalized (ﬁ/ﬀ → fi/ff), all five detectors run per
+                page. Unblocks the 1000-page liturgy benchmark.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Side panel</h3>
+              <p>
+                Three tabs: <strong>Verses / Topics / Books</strong>. Sort,
+                filter, verse lookup, per-occurrence rows, prev/next
+                navigation. Click-to-pin sync with the page. Copy All for
+                citations in either tab.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Toolbar + context menus</h3>
+              <p>
+                Right-click the icon to quick-disable the current site. Context
+                menu to open PDFs in the viewer. Omnibox verse lookup keyword.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Welcome tab</h3>
+              <p>
+                First-run tab opens on fresh install. Brand mark, three-beat
+                explanation, primary CTA to a live sample page (Desiring God
+                article — dense refs + theology + entities).
+              </p>
+            </div>
+            <div class="card">
+              <h3>Popup + options</h3>
+              <p>
+                Quick toggle in the popup. Granular per-feature settings for
+                detection, tooltips, intercepts, and Logos product links.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-num">07</div>
+      </section>
+
+      <!-- 8. Who it's for -->
+      <section class="slide theme-deep" data-title="Who it's for">
+        <div class="slide-inner">
+          <p class="eyebrow">Who we’re building for</p>
+          <h1>Two audiences, ordered.</h1>
+          <div class="grid-2" style="margin-top: 56px; gap: 64px">
+            <div>
+              <h3 style="color: #8db5ff; margin-bottom: 18px">
+                Primary · the serious Logos user
+              </h3>
+              <p style="color: #cfdcff; margin-bottom: 18px">
+                A companion for the committed Logos user who wants every blog
+                article, Substack essay, seminary PDF, and even a Google
+                search to connect back into their study environment.
+              </p>
+              <ul class="plain">
+                <li>
+                  <strong>Retention.</strong> Ambient Logos presence across
+                  their reading day.
+                </li>
+                <li>
+                  <strong>Engagement.</strong> Every outbound deep-link is an
+                  extra session in Logos desktop or Logos Web.
+                </li>
+                <li>
+                  <strong>Habit.</strong> “Logos is where I study, always” —
+                  even when study starts on a blog.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="color: #8db5ff; margin-bottom: 18px">
+                Secondary · TOFU for new users
+              </h3>
+              <p style="color: #cfdcff; margin-bottom: 18px">
+                A low-friction first touch with the Logos ecosystem. A free
+                Chrome extension is a lighter commitment than a desktop
+                install — and still shows the depth behind every reference,
+                term, and book.
+              </p>
+              <ul class="plain">
+                <li>
+                  <strong>Discovery funnel.</strong> “Available in Logos”
+                  banners surface on Amazon + publisher book pages.
+                </li>
+                <li>
+                  <strong>Lighter entry point.</strong> Free install, no
+                  up-front purchase — the open web becomes the onboarding
+                  path.
+                </li>
+                <li>
+                  <strong>Positioning.</strong> Logos as the trusted biblical
+                  reference layer of the open web.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout" style="margin-top: 48px; background: rgba(255, 209, 102, 0.1); border-left-color: #ffd166">
+            <p style="color: #ffe8a8">
+              <strong>CPO experiment framing:</strong> low-cost, low-risk, a
+              complement to the flagship — not a replacement. Success
+              compounds Logos’s presence in the user’s daily life.
+            </p>
+          </div>
+        </div>
+        <div class="slide-num">08</div>
+      </section>
+
+      <!-- 9. GTM plan -->
+      <section class="slide theme-light" data-title="GTM plan">
+        <div class="slide-inner">
+          <p class="eyebrow">Go-to-market</p>
+          <h2>Three-phase soft launch. Cheap to retreat, cheap to expand.</h2>
+          <div class="timeline" style="margin-top: 64px">
+            <div class="tl-phase current">
+              <div class="dot">A</div>
+              <div class="when">Now</div>
+              <h3>Internal dog-food</h3>
+              <p>
+                Zip + README to Logos product, design, and exec teams. Iterate
+                on feedback.
+              </p>
+            </div>
+            <div class="tl-phase current">
+              <div class="dot">B</div>
+              <div class="when">Weeks</div>
+              <h3>CWS unlisted</h3>
+              <p>
+                Published but not discoverable. Share link with Logos power
+                users via newsletter / Partner channel.
+              </p>
+            </div>
+            <div class="tl-phase">
+              <div class="dot">C</div>
+              <div class="when">Quarter</div>
+              <h3>CWS public</h3>
+              <p>
+                Open discovery once messaging, positioning, and detection
+                quality are proven with a real user cohort.
+              </p>
+            </div>
+            <div class="tl-phase">
+              <div class="dot">D</div>
+              <div class="when">Next</div>
+              <h3>Firefox + Edge</h3>
+              <p>
+                Same codebase, parallel store submissions once Chrome usage
+                signals are strong.
+              </p>
+            </div>
+          </div>
+          <div class="callout" style="margin-top: 56px">
+            <p>
+              <strong>Distribution mechanics.</strong> CWS publisher:
+              <code>philgons@gmail.com</code>, trader status with Faithlife
+              business address. Name: <strong>Logos Link</strong>. Assets
+              already in <code>store-assets/</code>.
+            </p>
+          </div>
+        </div>
+        <div class="slide-num">09</div>
+      </section>
+
+      <!-- 10. Success metrics -->
+      <section class="slide theme-soft" data-title="Success metrics">
+        <div class="slide-inner">
+          <p class="eyebrow">How we’ll know it’s working</p>
+          <h2>Primary: engagement. Secondary: transactions.</h2>
+          <div class="grid-2" style="gap: 48px">
+            <div>
+              <h3 style="margin-bottom: 8px">Primary · engagement</h3>
+              <p class="muted" style="margin-bottom: 16px; font-size: 15px">
+                More users logging more sessions in Logos.
+              </p>
+              <ul class="plain">
+                <li>
+                  <strong>Outbound CTR to Logos</strong> — UTM-tracked on
+                  every deep-link.
+                </li>
+                <li>
+                  <strong>Deep-link → app-open conversion</strong> — how many
+                  <code>logos4:</code> / <code>ref.ly</code> handoffs actually
+                  land in Logos desktop or web.
+                </li>
+                <li>
+                  <strong>DAU / WAU retention</strong> — is the extension
+                  part of daily reading?
+                </li>
+                <li>
+                  <strong>Detection rate + quality</strong> — refs, entities,
+                  books per active tab; self-reported false positives.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="margin-bottom: 8px">Secondary · transactions</h3>
+              <p class="muted" style="margin-bottom: 16px; font-size: 15px">
+                Book detections and intercepts driving Logos.com orders.
+              </p>
+              <ul class="plain">
+                <li>
+                  <strong>Store clickthroughs</strong> — from “Available in
+                  Logos” banners on Amazon + publisher PDPs, and from
+                  Books-tab deep-links.
+                </li>
+                <li>
+                  <strong>Attributable orders</strong> — UTM chain from
+                  extension → Logos.com checkout.
+                </li>
+                <li>
+                  <strong>Bible-verse intercept volume</strong> — redirects
+                  from Bible Gateway &amp; peers into
+                  <code>app.logos.com</code>.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <p>
+              <strong>Attribution caveat.</strong> Every link ships with
+              full UTM parameters. <code>ref.ly</code> redirects <em>may</em>
+              drop them before Google can log the session — we need to
+              verify pass-through and add a first-party sink if it’s lossy.
+            </p>
+          </div>
+        </div>
+        <div class="slide-num">10</div>
+      </section>
+
+      <!-- 11. What's planned -->
+      <section class="slide theme-light" data-title="What's planned">
+        <div class="slide-inner">
+          <p class="eyebrow">Roadmap</p>
+          <h2>What’s next — and what’s waiting on us.</h2>
+          <div class="feature-list">
+            <div class="feature">
+              <div class="icon">🗿</div>
+              <div class="body">
+                <h3>Object entities</h3>
+                <p>
+                  Ark of the Covenant, Tabernacle, Bronze Serpent, Menorah,
+                  Urim &amp; Thummim. DTRs already verified from BK dataset.
+                </p>
+              </div>
+              <div class="badge soon">Next</div>
+            </div>
+            <div class="feature">
+              <div class="icon">📄</div>
+              <div class="body">
+                <h3>Multi-line PDF reference stitching</h3>
+                <p>
+                  Merge adjacent text-layer spans by Y-coordinate so
+                  <code>Rom 8:28–30</code> matches even when the dash breaks a line.
+                </p>
+              </div>
+              <div class="badge soon">Next</div>
+            </div>
+            <div class="feature">
+              <div class="icon">🔎</div>
+              <div class="body">
+                <h3>Deeper entity &amp; book expansion</h3>
+                <p>
+                  Biblical-scope slice of the 49k BK Factbook dataset. Book
+                  index is already at ~400 titles; next push is topical
+                  breadth (minor prophets, apocryphal figures, theological
+                  loci beyond the current ~300).
+                </p>
+              </div>
+              <div class="badge soon">Next</div>
+            </div>
+            <div class="feature">
+              <div class="icon">📑</div>
+              <div class="body">
+                <h3>PDF full-override mode</h3>
+                <p>
+                  DNR rule redirects any <code>.pdf</code> response to our
+                  viewer. New permission, triggers CWS re-review.
+                </p>
+              </div>
+              <div class="badge soon">Later</div>
+            </div>
+            <div class="feature">
+              <div class="icon">💾</div>
+              <div class="body">
+                <h3>Save-as-passage-list · Save-as-note · Send-to-sermon</h3>
+                <p>
+                  Side panel has the UX stubs. Needs Logos API endpoints.
+                </p>
+              </div>
+              <div class="badge blocked">Blocked on API</div>
+            </div>
+            <div class="feature">
+              <div class="icon">🤖</div>
+              <div class="body">
+                <h3>Ask Study Assistant · Intelligent Assistant phase</h3>
+                <p>
+                  Contextual questions about the current page, sent to Logos
+                  Study Assistant. The whole of Phase 5.
+                </p>
+              </div>
+              <div class="badge blocked">Blocked on API</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-num">11</div>
+      </section>
+
+      <!-- 12. What we need from the team -->
+      <section class="slide theme-deep" data-title="Development support">
+        <div class="slide-inner">
+          <p class="eyebrow">What would unlock the next level</p>
+          <h1>What I need from the team.</h1>
+          <p class="lede" style="color: #cfdcff">
+            The MVP is usable without any of this. But each of these unlocks
+            meaningful depth — especially the API items, which gate Phase 5
+            entirely.
+          </p>
+          <div class="asks" style="margin-top: 48px">
+            <div class="ask">
+              <span class="from">Logos API / Platform</span>
+              <h3>OAuth + Passage Lists + Notes + Sermon + Study Assistant</h3>
+              <p>
+                Unlocks save-as-note, save-as-passage-list, send-to-sermon, and
+                all of Phase 5. Largest multiplier on product depth.
+              </p>
+            </div>
+            <div class="ask">
+              <span class="from">Design</span>
+              <h3>Tooltip &amp; side panel polish pass</h3>
+              <p>
+                The product is functional but could be more brand-aligned.
+                Welcome UX, tooltip type hierarchy, empty states.
+              </p>
+            </div>
+            <div class="ask">
+              <span class="from">Marketing</span>
+              <h3>Positioning + internal launch comms</h3>
+              <p>
+                How we talk about Logos Link to existing Logos users: companion
+                product, not flagship. Email + Partner channel plan.
+              </p>
+            </div>
+            <div class="ask">
+              <span class="from">Data / Content</span>
+              <h3>BK dataset refresh + book index curation</h3>
+              <p>
+                Pipeline for keeping our Factbook slug map current as BK
+                evolves. A sourced list for scaling the book index.
+              </p>
+            </div>
+            <div class="ask">
+              <span class="from">Legal / Brand</span>
+              <h3>Trader status + brand use + privacy policy hosting</h3>
+              <p>
+                Review the Faithlife business address for CWS trader
+                declaration, the brand-mark usage, and host the privacy policy
+                at a Faithlife/Logos URL.
+              </p>
+            </div>
+            <div class="ask">
+              <span class="from">QA</span>
+              <h3>Community browser matrix + detection sampling</h3>
+              <p>
+                Sample real reading sessions on DG, TGC, Crossway, Bible
+                Gateway, seminary syllabi PDFs. Catch false positives before
+                public launch.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-num">12</div>
+      </section>
+
+      <!-- 13. Next 90 days -->
+      <section class="slide theme-accent" data-title="Next 90 days">
+        <div class="slide-inner">
+          <p class="eyebrow">Next 90 days</p>
+          <h1>A concrete plan, if we say go.</h1>
+          <div class="timeline" style="margin-top: 64px">
+            <div class="tl-phase current">
+              <div class="dot">30</div>
+              <div class="when">Days 1–30</div>
+              <h3>Ship to internal</h3>
+              <p>
+                Distribution channel live. Object entities. PDF line stitching.
+                Feedback loop with dog-food users.
+              </p>
+            </div>
+            <div class="tl-phase current">
+              <div class="dot">60</div>
+              <div class="when">Days 31–60</div>
+              <h3>CWS unlisted + power users</h3>
+              <p>
+                Unlisted submission clears. Invite 100–300 Logos power users.
+                Design polish pass. Detection-quality metrics baseline.
+              </p>
+            </div>
+            <div class="tl-phase">
+              <div class="dot">90</div>
+              <div class="when">Days 61–90</div>
+              <h3>Public listing + Logos API integrations</h3>
+              <p>
+                Public CWS listing. First Logos API endpoint integrated (passage
+                list or notes, whichever lands first). Marketing co-launch.
+              </p>
+            </div>
+            <div class="tl-phase">
+              <div class="dot">+</div>
+              <div class="when">Beyond</div>
+              <h3>Phase 5 + cross-browser</h3>
+              <p>
+                Study Assistant integration. Firefox + Edge parallel launches.
+                PDF override mode with CWS re-review.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-num">13</div>
+      </section>
+
+      <!-- 14. Strategic questions -->
+      <section class="slide theme-light" data-title="Strategic questions">
+        <div class="slide-inner">
+          <p class="eyebrow">Decisions we need to make together</p>
+          <h2>Three strategic questions.</h2>
+          <p class="lede">
+            The MVP is working. Where it goes from here is an organizational
+            question, not an engineering one — and these three need
+            engineering leadership + exec alignment.
+          </p>
+          <div class="asks" style="margin-top: 40px">
+            <div class="ask">
+              <span class="from">Question 1</span>
+              <h3>Official or unofficial?</h3>
+              <p>
+                Do we want to publish Logos Link as an official Logos
+                extension — or does it stay a personal, unofficial side
+                project under my CWS publisher account?
+              </p>
+            </div>
+            <div class="ask">
+              <span class="from">Question 2</span>
+              <h3>Code review or rewrite?</h3>
+              <p>
+                If it becomes official, does that require a full engineering
+                rewrite, or would a thorough code review suffice to adopt
+                the existing codebase as-is?
+              </p>
+            </div>
+            <div class="ask" style="grid-column: 1 / -1">
+              <span class="from">Question 3</span>
+              <h3>Who owns it, and how much do we invest?</h3>
+              <p>
+                Who maintains it going forward? Do we invest beyond the
+                current feature set — auth, Save to Notes, Ask Study
+                Assistant, passage lists, sermon handoff? SoSO integration
+                may make several of these meaningfully cheaper to ship.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-num">14</div>
+      </section>
+
+      <!-- 15. Close -->
+      <section class="slide theme-deep" data-title="Close">
+        <div class="slide-inner" style="text-align: left">
+          <p class="eyebrow">The ask</p>
+          <div class="close-cta">
+            Let’s give Logos a presence<br />
+            everywhere our users read.
+          </div>
+          <p class="close-sub">
+            It’s the cheapest experiment we can run that meaningfully expands
+            where Logos lives in the user’s day. The MVP is already here —
+            let’s put it in people’s hands and learn what they do with it.
+          </p>
+          <p class="close-sub" style="margin-top: 20px">
+            → <a href="../getting-started/" style="color: #ffd166; text-decoration: underline">Install and try it</a>
+            (companion walkthrough for the feature surfaces)
+          </p>
+          <div class="close-sig">
+            <strong>Phil Gons</strong> · CPO · Logos / Faithlife<br />
+            Questions, objections, counter-proposals all welcome.
+          </div>
+        </div>
+        <div class="slide-num">15 / 15</div>
+      </section>
+    </main>
+
+    <div class="kbd-hint" id="kbdHint">
+      <kbd>↑</kbd> <kbd>↓</kbd> navigate · <kbd>Home</kbd> <kbd>End</kbd> jump
+    </div>
+
+    <script>
+      const deck = document.getElementById("deck");
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      const dotsEl = document.getElementById("navDots");
+      const kbdHint = document.getElementById("kbdHint");
+
+      slides.forEach((slide, i) => {
+        const dot = document.createElement("button");
+        dot.className = "nav-dot";
+        dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+        dot.title = slide.dataset.title || `Slide ${i + 1}`;
+        dot.addEventListener("click", () => {
+          slide.scrollIntoView({ behavior: "smooth" });
+        });
+        dotsEl.appendChild(dot);
+      });
+
+      const dots = Array.from(dotsEl.children);
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+              const idx = slides.indexOf(entry.target);
+              dots.forEach((d, i) => d.classList.toggle("active", i === idx));
+              const onDeep = entry.target.classList.contains("theme-deep");
+              dotsEl.classList.toggle("on-deep", onDeep);
+              kbdHint.classList.toggle("on-deep", onDeep);
+            }
+          });
+        },
+        { threshold: [0.5] }
+      );
+      slides.forEach((s) => io.observe(s));
+
+      function goTo(idx) {
+        const clamped = Math.max(0, Math.min(slides.length - 1, idx));
+        slides[clamped].scrollIntoView({ behavior: "smooth" });
+      }
+
+      function current() {
+        const scrollTop = deck.scrollTop;
+        return Math.round(scrollTop / window.innerHeight);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
+          e.preventDefault();
+          goTo(current() + 1);
+        } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+          e.preventDefault();
+          goTo(current() - 1);
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          goTo(0);
+        } else if (e.key === "End") {
+          e.preventDefault();
+          goTo(slides.length - 1);
+        }
+      });
+    </script>
+  </body>
+</html>
