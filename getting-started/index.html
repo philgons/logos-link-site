@@ -512,6 +512,7 @@
       <div class="toc-inner">
         <span class="label">Jump to</span>
         <a href="#toolbar">Toolbar</a>
+        <a href="#new-tab">New Tab</a>
         <a href="#sidebar">Sidebar</a>
         <a href="#page-content">Page content</a>
         <a href="#omnibox">Omnibox</a>
@@ -551,8 +552,49 @@
         </ol>
       </section>
 
-      <section class="feature" id="sidebar">
+      <section class="feature" id="new-tab">
         <p class="eyebrow" style="color: var(--blue)">Surface · 02</p>
+        <h2>New Tab</h2>
+        <p class="lede">
+          Open a new tab and Chrome lands on a Bible-study launchpad — a
+          daily Verse of the Day, a single search field that figures out
+          what you mean, and one-click tiles into Logos.
+        </p>
+        <ol class="steps">
+          <li>
+            <strong>Verse of the Day</strong> sits at the top with one-click
+            <strong>Read</strong>, <strong>Explain</strong>,
+            <strong>Ask</strong>, and <strong>Study</strong> actions —
+            jump into the reader, ask Study Assistant to explain it, ask
+            your own question about it, or open it in Factbook.
+          </li>
+          <li>
+            <strong>Smart Search</strong> in the middle figures out what
+            you mean: type a passage like <code>Romans 8:28</code> to open
+            the reader; type a question like <code>What is justification?</code>
+            to send it to Study Assistant; type anything else to run a
+            Logos library search.
+          </li>
+          <li>
+            <strong>Quick-launch tiles</strong> below the search field jump
+            you into your preferred Bible, Study Assistant, a random Factbook
+            entry, the Logos store, or the side panel.
+          </li>
+          <li>
+            <strong>Five themes</strong> live in the bottom-left corner —
+            White, Light, Medium, Deep, Dark. Pick one; it applies across
+            the whole extension.
+          </li>
+          <li>
+            Prefer something else? In <strong>Settings → New Tab</strong>,
+            switch to a <strong>minimal</strong> layout (search field only)
+            or <strong>redirect</strong> the new tab to a URL of your choice.
+          </li>
+        </ol>
+      </section>
+
+      <section class="feature" id="sidebar">
+        <p class="eyebrow" style="color: var(--blue)">Surface · 03</p>
         <h2>Sidebar</h2>
         <p class="lede">
           The browsing interface for everything Logos Link detected on the
@@ -598,7 +640,15 @@
           </li>
           <li>
             <strong>Jump into Logos</strong> from any item: open in your
-            Bible, open in Factbook, or run a search.
+            Bible, open in Factbook, run a search, or
+            <strong>Ask Study Assistant</strong> a question with the item
+            already attached as context.
+          </li>
+          <li>
+            When Logos Link recognizes a <strong>book</strong> on the page
+            and your library has it, the Books tab adds an
+            <strong>Open in Logos</strong> button that drops you straight
+            into that book.
           </li>
           <li>
             Persistent links to <strong>open the web app or desktop app</strong>
@@ -608,7 +658,7 @@
       </section>
 
       <section class="feature" id="page-content">
-        <p class="eyebrow" style="color: var(--blue)">Surface · 03</p>
+        <p class="eyebrow" style="color: var(--blue)">Surface · 04</p>
         <h2>Page content</h2>
         <p class="lede">
           The core of the product: Logos Link silently detects biblical
@@ -636,8 +686,10 @@
               item: the right tab, scrolled to the right card.
             </li>
             <li>
-              <strong>Click a link in the tooltip</strong> to launch Logos:
-              open a Bible, open Factbook, or run a search.
+              <strong>Click a link in the tooltip</strong> to launch Logos —
+              open a Bible, open Factbook, run a search, or
+              <strong>Ask Study Assistant</strong> a question about whatever
+              the tooltip is showing.
             </li>
           </ol>
         </div>
@@ -675,9 +727,7 @@
       </section>
 
       <section class="feature" id="omnibox">
-        <p class="eyebrow" style="color: var(--blue)">
-          Surface · 04 <span class="tag soon">Rough edges</span>
-        </p>
+        <p class="eyebrow" style="color: var(--blue)">Surface · 05</p>
         <h2>Omnibox</h2>
         <p class="lede">
           A keyword shortcut in Chrome’s address bar for fast lookups without
@@ -685,31 +735,29 @@
         </p>
         <ol class="steps">
           <li>
-            Type <code>logos</code> into the Chrome address bar, press
+            Type <code>l</code> into the Chrome address bar, press
             <kbd>Tab</kbd> or <kbd>Space</kbd>, then type either:
             <ul style="margin: 10px 0 0 20px; padding: 0">
-              <li>
-                A search term (e.g. <code>Trinity</code>) — runs a Logos
-                search.
-              </li>
               <li>
                 A Bible reference (e.g. <code>John 3:16</code>) — opens that
                 passage in the Logos web app.
               </li>
+              <li>
+                A question (e.g. <code>What is justification?</code>) —
+                sends it to Study Assistant.
+              </li>
+              <li>
+                Any other search term (e.g. <code>Trinity</code>) — runs a
+                Logos library search.
+              </li>
             </ul>
           </li>
         </ol>
-        <div class="callout warn">
-          <p>
-            I haven’t spent much time here yet — pretty basic and
-            needs polish. Ideas welcome.
-          </p>
-        </div>
       </section>
 
       <section class="feature" id="context-menu">
         <p class="eyebrow" style="color: var(--blue)">
-          Surface · 05 <span class="tag soon">Rough edges</span>
+          Surface · 06 <span class="tag soon">Rough edges</span>
         </p>
         <h2>Context menu</h2>
         <p class="lede">
@@ -720,12 +768,16 @@
           <li>
             Right-click on page content — selected text or a link — and look
             for the <strong>Logos Link</strong> menu item to take actions on
-            the selected item or text.
+            the selected item or text, including
+            <strong>Explain "X"</strong> (sends a quick prompt to Study
+            Assistant) and <strong>Ask about "X"…</strong> (opens a modal
+            so you can frame your own question with the selection as
+            context).
           </li>
         </ol>
         <div class="callout warn">
           <p>
-            Also early — needs further testing and polish. Try it on a few
+            Still early — needs further testing and polish. Try it on a few
             kinds of selections and tell me what feels missing.
           </p>
         </div>
